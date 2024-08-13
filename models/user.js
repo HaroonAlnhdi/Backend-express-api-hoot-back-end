@@ -11,4 +11,10 @@ const userSchema = new Schema({
   },
 });
 
+userSchema.set('toJSON', {
+  transform: (doc, obj) => {
+    delete obj.hashedPassword;
+  },
+});
+
 module.exports = model('User', userSchema);
