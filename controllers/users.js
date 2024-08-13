@@ -1,5 +1,9 @@
 const express = require('express');
+// auth
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
+// Models
 const User = require('../models/user');
 
 const router = express.Router();
@@ -40,7 +44,15 @@ router.post('/signin', async (req, res) => {
       throw Error('Invalid Credentials');
     }
 
-    return res.status(200).json({ user: existingUser });
+    const token = jwt.sign(
+      {
+        id: existingUser._id,
+        username: existingUser.username,
+      },
+      process.env.JWT_SECRET
+    );
+
+    return res.status(200).json({ user: existingUser, token });
   } catch (error) {
     res.status(400).json({ error: 'Something went wrong, try again.' });
   }
