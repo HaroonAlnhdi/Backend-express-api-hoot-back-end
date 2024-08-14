@@ -11,7 +11,7 @@ router.use(verifyToken)
 
 router.post('/', async (req, res) => {
   try {
-    req.body.author = req.user.id
+    req.body.author = req.user._id
     const hoot = await Hoot.create(req.body)
 
     res.status(201).json(hoot)
