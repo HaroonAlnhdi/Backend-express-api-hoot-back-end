@@ -67,3 +67,13 @@ router.post('/signin', async (req, res) => {
 });
 
 module.exports = router;
+
+
+/**
+ * 
+ * "username": "user",
+        "_id": "66bc6c00987129eed7fbefee",
+        "__v": 0
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YmM2YzAwOTg3MTI5ZWVkN2ZiZWZlZSIsInVzZXJuYW1lIjoidXNlciIsImlhdCI6MTcyMzYyNDQ0OH0.nEqwtq3U7kvfYZpKy-rplcvW8BNMXTAUGiYk9BcR464"
+ */
